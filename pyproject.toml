@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "poetry-config-script"
+version = "0.1.0"
+description = "Configure Python Poetry with script on top of pyproject.toml"
+authors = ["Raphaël JOIE <info@widespot.be>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
