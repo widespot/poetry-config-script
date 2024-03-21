@@ -55,3 +55,10 @@ class PropertyPatch:
 patch = PropertyPatch()
 setattr(PyProjectTOML, "poetry_config", patch)
 ```
+
+## Testing
+
+### Unit
+```bash
+python -m unittest discover tests.unit -v
+```
