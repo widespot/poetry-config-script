@@ -12,12 +12,12 @@ def patch():
     if patched:
         return
 
-    poetry_config = getattr(PyProjectTOML, "poetry_config")
+    poetry_config_unpatched = getattr(PyProjectTOML, "poetry_config")
 
-    class PropertyMock:
+    class PropertyPatch:
 
         def __get__(self, obj, obj_type=None):
-            config = poetry_config.__get__(obj)
+            config = poetry_config_unpatched.__get__(obj)
 
             config_script = config.pop("config_script", None)
             if config_script:
@@ -38,6 +38,6 @@ def patch():
             raise Exception("Not implemented")
             # self(val)
 
-    mock = PropertyMock()
+    mock = PropertyPatch()
     setattr(PyProjectTOML, "poetry_config", mock)
     setattr(PyProjectTOML, patched_attr, True)
